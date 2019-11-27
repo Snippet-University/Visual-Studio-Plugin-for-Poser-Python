@@ -1,0 +1,59 @@
+﻿Using IDLE with Poser Pro 2014 / Poser 2014
+This Poser Version uses Python Version 2.7.1
+
+The IDLE Version inside this Python Package requires a small change inside the idlelib package
+
+to run inside Poser 2014 / Poser Pro 2014.
+
+
+
+Step 1. Fixing the IdleLib Package:
+
+Open „YourDrvie:\YourPoserInstallation\Runtime\Python\Lib\Idlelib\pyshell.py“
+
+with a TextEditor.
+
+
+
+Search for the Line:
+
+use_subprocess = True
+
+change it to:
+
+use_subprocess = False
+
+Search for the Line:
+
+debug = False
+
+change it to:
+
+debug = True
+
+Save the the file, you are done here.
+
+
+
+Step 2. Edition your Mainbuttons File
+
+Open „YourDrvie:\yourPoserInstallation\Runtime\Python\PoserSrcipts\MainButtons.py“
+
+with a TextEditor. Change an Empty Button Line like the following example:
+
+example for Button8
+
+Replace this line:
+
+poser.DefineScriptButton(8, "", "…")
+
+With:
+
+poser.DefineScriptButton(8, ":Runtime:Python:Lib:idlelib:idle.py", "IDLE 2.7.1")
+
+Now You can Start the Python Debugger IDLE Version 2.7.1 from Inside Poser.
+
+
+
+For Instructions how to use IDLE (debugging python scripts inside Poser) refer to Part2 of this manual.
+
